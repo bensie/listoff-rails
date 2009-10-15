@@ -1,0 +1,24 @@
+<% title "Item" %>
+
+<p>
+  <strong>List:</strong>
+  <%=h @item.todo.name %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%=h @item.content %>
+</p>
+<p>
+  <strong>Completed:</strong>
+  <%=h @item.completed %>
+</p>
+<p>
+  <strong>Position:</strong>
+  <%=h @item.position %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_todo_item_path(@todo, @item) %> |
+  <%= link_to "Destroy", [@todo, @item], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", todo_items_path(@todo) %>
+</p>

@@ -1,0 +1,23 @@
+<% title "Items" %>
+
+<table>
+  <tr>
+    <th>List</th>
+    <th>Content</th>
+    <th>Completed</th>
+    <th>Position</th>
+  </tr>
+  <% for item in @items %>
+    <tr>
+      <td><%=h item.todo_id %></td>
+      <td><%=h item.content %></td>
+      <td><%=h item.completed %></td>
+      <td><%=h item.position %></td>
+      <td><%= link_to "Show", [@todo, item] %></td>
+      <td><%= link_to "Edit", edit_todo_item_path(@todo, item) %></td>
+      <td><%= link_to "Destroy", [@todo, item], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Item", new_todo_item_path(@todo) %></p>
