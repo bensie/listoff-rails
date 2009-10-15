@@ -3,6 +3,8 @@ class Item < ActiveRecord::Base
   belongs_to :todo, :counter_cache => true
   
   validates_presence_of :content
+  
+  attr_accessible :content, :todo_id
 
   def to_xml(options={})
     default_serialization_options(options)
@@ -17,7 +19,7 @@ class Item < ActiveRecord::Base
 protected
 
   def default_serialization_options(options={})
-    options[:only] = [:id, :name, :list_id, :content, :completed, :updated_at, :created_at]
+    options[:only] = [:id, :list_id, :content, :completed, :updated_at, :created_at]
   end
 
 end
