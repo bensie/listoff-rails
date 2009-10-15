@@ -6,6 +6,8 @@ class Todo < ActiveRecord::Base
   
   validates_presence_of :name
   
+  attr_accessible :name
+  
   def to_xml(options={})
     default_serialization_options(options)
     super(options)
