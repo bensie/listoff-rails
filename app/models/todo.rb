@@ -19,7 +19,7 @@ class Todo < ActiveRecord::Base
 protected
 
   def default_serialization_options(options={})
-    options[:only] = [:id, :name, :updated_at, :created_at]
+    options[:only] = [:id, :name, :items_count, :updated_at, :created_at]
     #options[:methods] = [:spent, :over_amount, :under_amount]
   end
 

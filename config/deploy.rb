@@ -1,7 +1,7 @@
 set :application, "listoff"
 
 set :scm, :git
-set :repository,  "git@github.com:bensie/listoff.git"
+set :repository,  "git@github.com:bensie/listoff-rails.git"
 set :branch, "master"
 
 set :deploy_to, "/home/jkmiller/apps/#{application}-production"

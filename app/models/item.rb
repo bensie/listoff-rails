@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   
-  belongs_to :todo
+  belongs_to :todo, :counter_cache => true
   
   validates_presence_of :content
 
