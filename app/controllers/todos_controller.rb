@@ -19,9 +19,6 @@ class TodosController < ApplicationController
       format.xml  { render :xml  => @todo }
       format.json { render :json => @todo }
     end
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Invalid todo."
-    redirect_to root_url
   end
 
   def new
@@ -36,9 +33,6 @@ class TodosController < ApplicationController
 
   def edit
     @todo = current_user.todos.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Invalid todo."
-    redirect_to root_url
   end
 
   def create
@@ -70,9 +64,6 @@ class TodosController < ApplicationController
         format.json { render :json => @todo.errors, :status => :unprocessable_entity }
       end
     end
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Invalid todo."
-    redirect_to root_url
   end
 
   def destroy
@@ -83,9 +74,6 @@ class TodosController < ApplicationController
       format.html { redirect_to(todos_url) }
       format.any(:xml, :json)  { head :ok }
     end
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Invalid todo."
-    redirect_to root_url
   end
   
 end

@@ -20,9 +20,6 @@ class ItemsController < ApplicationController
       format.xml  { render :xml  => @item }
       format.json { render :json => @item }
     end
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Invalid item."
-    redirect_to @todo
   end
 
   def new
@@ -37,9 +34,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = @todo.items.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Invalid item."
-    redirect_to @todo
   end
 
   def create    
@@ -79,9 +73,6 @@ class ItemsController < ApplicationController
         format.json { render :json => @item.errors, :status => :unprocessable_entity }
       end
     end
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Invalid item."
-    redirect_to @todo
   end
 
   def destroy
@@ -93,18 +84,12 @@ class ItemsController < ApplicationController
       format.any(:xml, :json) { head :ok }
       format.js   { render 'create'}  
     end
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Invalid item."
-    redirect_to @todo
   end
   
 protected
 
   def find_todo
     @todo = current_user.todos.find(params[:todo_id])
-  rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Invalid todo."
-    redirect_to @todo
   end
 
 end
