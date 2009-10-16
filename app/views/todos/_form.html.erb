@@ -1,5 +1,4 @@
 <% labeled_form_for @todo do |f| -%>
-<fieldset>  
   <%= f.text_field :name %>
   <p>
     <% if @todo.new_record? -%>
@@ -10,5 +9,4 @@
       <%= cancel_link todo_path(@todo) %>
     <% end -%>
   </p>
-</fieldset>
 <% end -%>
