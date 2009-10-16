@@ -19,7 +19,7 @@ class Item < ActiveRecord::Base
 protected
 
   def default_serialization_options(options={})
-    options[:only] = [:id, :list_id, :content, :completed, :updated_at, :created_at]
+    options[:only] = [:id, :todo_id, :content, :completed, :updated_at, :created_at]
   end
 
 end
