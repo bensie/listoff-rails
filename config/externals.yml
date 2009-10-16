@@ -1,0 +1,8 @@
+vendor/plugins/acts_as_list:
+    :type: git
+    :repository: git://github.com/rails/acts_as_list.git
+    :revision: 8771a632dc26a7782800347993869c964133ea29
+vendor/plugins/validation_reflection:
+    :type: :git
+    :repository: git://github.com/redinger/validation_reflection.git
+    :revision: a2bcc8c836a45af8a7784b51b4d586ed8924f01f

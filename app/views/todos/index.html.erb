@@ -1,15 +1,9 @@
-<% title "To-Do Lists" %>
+<% title "My Lists" %>
 
 <table>
-  <tr>
-    <th>Name</th>
-  </tr>
   <% for todo in @todos %>
     <tr>
-      <td><%=h todo.name %></td>
-      <td><%= link_to "Show", todo %></td>
-      <td><%= link_to "Edit", edit_todo_path(todo) %></td>
-      <td><%= link_to "Destroy", todo, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to todo.name, todo %> (<%= pluralize(todo.items_count, 'item') %>)</td>
     </tr>
   <% end %>
 </table>

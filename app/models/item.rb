@@ -1,5 +1,7 @@
 class Item < ActiveRecord::Base
   
+  acts_as_list :scope => :todo_id
+  
   belongs_to :todo, :counter_cache => true
   
   validates_presence_of :content

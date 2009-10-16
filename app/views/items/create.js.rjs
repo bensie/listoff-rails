@@ -1,0 +1,12 @@
+page[:items].replace_html :partial => 'todos/items', 
+                             :locals  => {:items  => @todo.items,
+                                          :todo => @todo}
+
+#page[:summary].replace_html :partial => 'todos/summary', 
+#                             :locals  => {:todo => @todo}
+                             
+#page[:summary].highlight
+
+page[:new_item].reset
+
+page[:item_content].focus

@@ -12,7 +12,7 @@ class TodosController < ApplicationController
 
   def show
     @todo = current_user.todos.find(params[:id])
-    @itme = Item.new
+    @item = Item.new
 
     respond_to do |format|
       format.html

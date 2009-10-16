@@ -1,5 +1,7 @@
 class Todo < ActiveRecord::Base
   
+  acts_as_list :scope => :user_id
+  
   belongs_to :user
   
   has_many :items, :dependent => :destroy

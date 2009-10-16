@@ -6,9 +6,8 @@
 </p>
 
 <% form_tag sessions_path do -%>
-<fieldset>
   <p>
-    <%= label_tag :login, 'Login or E-mail' %>
+    <%= label_tag :login, 'Email Address' %>
     <%= text_field_tag 'session[login]', 
                        params[:login], :size => 20 %>
   </p>
@@ -20,5 +19,4 @@
   <p>
 	  <%= submit_tag 'Log In', :class => 'button' %>
 	</p>
-</fieldset>	
 <% end -%>

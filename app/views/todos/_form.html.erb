@@ -1,8 +1,14 @@
-<% form_for @todo do |f| %>
-  <%= f.error_messages %>
+<% labeled_form_for @todo do |f| -%>
+<fieldset>  
+  <%= f.text_field :name %>
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <% if @todo.new_record? -%>
+      <%= submit_tag "Create" %> or
+      <%= cancel_link todos_path %>
+    <% else -%>
+      <%= submit_tag "Update" %> or
+      <%= cancel_link todo_path(@todo) %>
+    <% end -%>
   </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
+</fieldset>
+<% end -%>

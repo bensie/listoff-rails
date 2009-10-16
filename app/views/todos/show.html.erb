@@ -1,12 +1,33 @@
-<% title "Todo" %>
+<% banner @todo.name, 
+  link_to('Edit', edit_todo_path(@todo)),
+  link_to('Delete', @todo, :confirm => 'Sure?', :method => :delete) %>
 
-<p>
-  <strong>Name:</strong>
-  <%=h @todo.name %>
-</p>
+<div id="todo">
 
-<p>
-  <%= link_to "Edit", edit_todo_path(@todo) %> |
-  <%= link_to "Destroy", @todo, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", todos_path %>
-</p>
+
+
+<div class="break"></div>
+
+<div id="items">
+  <% if @todo.items.any? -%>  
+    <%= render :partial => 'items',
+               :locals  => {:items  => @todo.items, 
+                            :todo => @todo} %>
+  <% else -%>
+    No items (yet).  Go on, add one...
+  <% end -%>
+</div>
+
+<div class="break"></div>
+
+<h3>Add an item</h3>
+
+<% remote_form_for([@todo, @item]) do |f| -%>
+  <p class="item-form">
+    <%= f.text_field :content, :size => 20 %>
+  </p>
+  <%= f.submit 'Add this item' %> or 
+  <%= cancel_link todos_path %>
+<% end -%>
+
+</div>
